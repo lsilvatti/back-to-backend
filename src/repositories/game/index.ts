@@ -2,25 +2,55 @@ import { type Game } from '../../types/game/index.js';
 
 const games: Game[] = [];
 
-export const getAllGames = (): Game[] => {
-  return games;
-};
-
-export const addGame = (game: Game): void => {
-  games.push(game);
+export interface IGameRepository {
+    getAllGames: () => Promise<Game[]>;
+    addGame: (game: Game) => Promise<Game>;
+    deleteGame: (id: string) => Promise<boolean>;
+    findGame: (parameters: Partial<Game>) => Promise<Game | undefined>;
+    findGames: (parameters: Partial<Game>) => Promise<Game[]>;
 }
 
-export const deleteGame = (id: string): void => {
-    const index = games.findIndex((game) => game.id === id);
-    if (index !== -1) {
-        games.splice(index, 1);
+export default function GameRepository(): IGameRepository {
+    
+    const getAllGames = async (): Promise<Game[]> => {
+        return [...games];
+    };
+
+    const addGame = async (game: Game): Promise<Game> => {
+        games.push(game);
+        return game;
     }
-}
 
-export const findGame = (parameters: Partial<Game>): Game | undefined => {
-    return games.find((game) => {
-        return Object.entries(parameters).every(([key, value]) => {
-            return game[key as keyof Game] === value;
+    const deleteGame = async (id: string): Promise<boolean> => {
+        const index = games.findIndex((game) => game.id === id);
+        if (index !== -1) {
+            games.splice(index, 1);
+            return true;
+        }
+        return false;
+    }
+
+    const findGame = async (parameters: Partial<Game>): Promise<Game | undefined> => {
+        return games.find((game) => {
+            return Object.entries(parameters).every(([key, value]) => {
+                return game[key as keyof Game] === value;
+            });
         });
+    };
+
+    const findGames = async (parameters: Partial<Game>): Promise<Game[]> => {
+        return games.filter((game) => {
+            return Object.entries(parameters).every(([key, value]) => {
+                return game[key as keyof Game] === value;
+            });
+        });
+    };
+
+    return ({
+        getAllGames,
+        addGame,
+        deleteGame,
+        findGame,
+        findGames
     });
-};
+}
