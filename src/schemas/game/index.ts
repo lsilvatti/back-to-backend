@@ -1,6 +1,8 @@
 import joi from 'joi';
 import { GamePlatforms, GameCurrentState } from 'src/types/index.js';
 
+const currentYear = new Date(Date.now()).getFullYear();
+
 const gameSchema = joi.object({
     title: joi.string().min(3).required().messages({
         'string.base': 'O título deve ser uma string',
@@ -8,13 +10,18 @@ const gameSchema = joi.object({
         'string.min': 'O título deve conter pelo menos 3 caracteres',
         'any.required': 'O título é obrigatório',
     }),
-    year: joi.date().greater('1958-01-01').less('now').messages({
-        'date.base': 'O ano deve ser uma data válida',
-        'date.greater': 'O ano deve ser posterior a 1958',
-        'date.less': 'O ano não pode ser no futuro',
+    year: joi.number().min(1958).max(currentYear).required().messages({
+        'number.empty': 'O ano não pode ser vazio',
+        'number.base': 'O ano deve ser um número',
+        'number.valid': 'O ano deve ser um número valido',
+        'number.min': 'O ano deve ser posterior a 1958',
+        'number.max': 'O ano não pode ser no futuro',
+        'any.required': 'O ano é obrigatório',
     }),
-    platform: joi.string().valid(...Object.values(GamePlatforms)).messages({
+    platform: joi.string().valid(...Object.values(GamePlatforms)).required().messages({
         'string.base': 'A plataforma deve ser uma string',
+        'string.empty': 'A plataforma não pode ser vazia',
+        'any.required': 'A plataforma é obrigatória',
         'any.only': `A plataforma deve ser uma das seguintes: ${Object.values(GamePlatforms).join(', ')}`,
     }),
     status: joi.string().valid(...Object.values(GameCurrentState)).default(GameCurrentState.Backlog).optional().messages({
