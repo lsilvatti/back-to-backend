@@ -9,7 +9,7 @@ export interface IGameService {
     findGames: (parameters: Partial<Game>) => Promise<Game[]>;
 }
 
-export default function gameService(repository: IGameRepository) {
+export default function gameService(repository: IGameRepository): IGameService {
 
     const getAllGames = async () => {
         return await repository.getAllGames();
