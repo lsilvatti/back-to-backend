@@ -25,15 +25,10 @@ export default function GameController(service: IGameService) {
     const deleteGame = async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
         try {
             const { id } = req.params;
-            
-            const deleted = await service.deleteGame(id);
-            
-            if (deleted) {
-                return res.status(204).send();
-            } else {
-                return res.status(404).json({ message: 'Jogo não encontrado' });
-            }
+    
+            await service.deleteGame(id);
 
+            return res.status(204).send();
         } catch (error) { 
             next(error);
         }
@@ -56,11 +51,7 @@ export default function GameController(service: IGameService) {
             
             const updatedGame = await service.changeGameStatus(id, status);
 
-            if (updatedGame) {
-                return res.status(200).json(updatedGame);
-            } else {
-                return res.status(404).json({ message: 'Jogo não encontrado' });
-            }
+            return res.status(200).json(updatedGame);
             
         } catch (error) {
             next(error);

@@ -1,4 +1,5 @@
 import { type IGameRepository} from '@repositories/game/index.js';
+import apiError from '@helpers/apiError/index.js';
 import type { CreateGameDTO, Game, GameCurrentState } from 'src/types/index.js';
 
 export interface IGameService {
@@ -12,7 +13,8 @@ export interface IGameService {
 export default function gameService(repository: IGameRepository): IGameService {
 
     const getAllGames = async () => {
-        return await repository.getAllGames();
+        const games = await repository.getAllGames();
+        return games;
     };
 
     const addGame = async (game: CreateGameDTO) => {
@@ -25,15 +27,26 @@ export default function gameService(repository: IGameRepository): IGameService {
     };
 
     const deleteGame = async (id: string) => {
-        return await repository.deleteGame(id);
+        const deleted = await repository.deleteGame(id);
+
+        if(!deleted) { 
+            throw apiError('Jogo não encontrado', 404);
+        }
+
+        return deleted;
     };
 
     const findGames = async (parameters: Partial<Game>) => {
-        return await repository.findGames(parameters);
+        const games = await repository.findGames(parameters);
+        return games;
     };
 
     const changeGameStatus = async (id: string, status: GameCurrentState) => {
-        return await repository.updateGame(id, { status });
+        const game = await repository.updateGame(id, { status });
+        if (!game) {
+            throw apiError('Jogo não encontrado', 404);
+        }
+        return game;
     };
 
     return ({
