@@ -1,7 +1,7 @@
 import { type ObjectSchema } from 'joi';
 import { type Request, type Response, type NextFunction } from 'express';
 
-function validateBody(schema: ObjectSchema) {
+function bodyValidationMiddleware(schema: ObjectSchema) {
     return (req: Request, res: Response, next: NextFunction) => {
         const { error } = schema.validate(req.body);
         
@@ -13,4 +13,4 @@ function validateBody(schema: ObjectSchema) {
     }
 }
 
-export default validateBody;
+export default bodyValidationMiddleware;
