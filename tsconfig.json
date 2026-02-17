@@ -8,6 +8,7 @@
     "paths":{ 
       "@controllers/*" : ["src/controllers/*"],
       "@routes/*": ["src/routes/*"],
+      "@helpers/*": ["src/helpers/*"],
       "@schemas/*": ["src/schemas/*"],
       "@services/*": ["src/services/*"],
       "@repositories/*": ["src/repositories/*"],
@@ -39,6 +40,7 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
     "esModuleInterop": true,  
+    "allowSyntheticDefaultImports": true
   },
 
   "include": ["src/**/*"],
