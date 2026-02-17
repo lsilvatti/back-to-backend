@@ -34,6 +34,13 @@ const baseGameFields = {
     status: joi.string().valid(...Object.values(GameCurrentState)).messages({
         'any.only': `O status deve ser: ${Object.values(GameCurrentState).join(', ')}`,
     }).description('Status atual do jogo'),
+    createdAt: joi.date().iso().messages({
+        'date.base': 'A data de criação deve ser uma data válida',
+        'date.format': 'A data deve estar no formato ISO 8601',
+    }).description('Data de criação do registro'),
+    updatedAt: joi.date().iso().messages({
+        'date.base': 'A data de atualização deve ser uma data válida',
+    }).description('Data da última atualização do registro'),
 };
 
 export const gameSchema = joi.object({
