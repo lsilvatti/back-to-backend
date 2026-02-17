@@ -1,6 +1,11 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2023",
+    "strict": true,
+    "esModuleInterop": true,
     // File Layout
     "rootDir": "src",
     "baseUrl": "./",
@@ -13,13 +18,11 @@
       "@services/*": ["src/services/*"],
       "@repositories/*": ["src/repositories/*"],
       "@middlewares/*": ["src/middlewares/*"],
+      "@prisma/*": ["prisma/*"]
     },
   
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "moduleResolution": "NodeNext",
-    "target": "esnext",
     "lib": ["esnext"],
     "types": ["node"],
 
@@ -31,15 +34,12 @@
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
-
-    "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "esModuleInterop": true,  
     "allowSyntheticDefaultImports": true
   },
 
