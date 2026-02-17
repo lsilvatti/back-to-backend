@@ -20,6 +20,11 @@ const baseGameFields = {
         'any.required': 'A plataforma é obrigatória',
         'any.only': `A plataforma deve ser: ${Object.values(GamePlatforms).join(', ')}`,
     }),
+    genre: joi.array().items(joi.string()).messages({
+        'array.base': 'O gênero deve ser um array de strings',
+        'string.base': 'Cada gênero deve ser uma string',
+        'any.required': 'O gênero é obrigatório',
+    }),
     status: joi.string().valid(...Object.values(GameCurrentState)).messages({
         'any.only': `O status deve ser: ${Object.values(GameCurrentState).join(', ')}`,
     }),
@@ -29,6 +34,7 @@ export const gameSchema = joi.object({
     title: baseGameFields.title.required(),
     year: baseGameFields.year.required(),
     platform: baseGameFields.platform.required(),
+    genre: baseGameFields.genre.required(),
     status: baseGameFields.status.default(GameCurrentState.Backlog)
 });
 
