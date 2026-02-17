@@ -4,6 +4,11 @@ import { GamePlatforms, GameCurrentState } from 'src/types/index.js';
 const currentYear = new Date(Date.now()).getFullYear();
 
 const baseGameFields = {
+    id: joi.string().uuid().messages({
+        'string.base': 'O ID deve ser uma string',
+        'string.guid': 'O ID deve ser um UUID válido',
+        'any.required': 'O ID é obrigatório',
+    }),
     title: joi.string().min(3).messages({
         'string.base': 'O título deve ser uma string',
         'string.empty': 'O título não pode ser vazio',
@@ -40,4 +45,12 @@ export const gameSchema = joi.object({
 
 export const gameQuerySchema = joi.object({
     ...baseGameFields 
+});
+
+export const gameStatusUpdateSchema = joi.object({
+    status: baseGameFields.status.required(),
+});
+
+export const idParamSchema = joi.object({
+    id: baseGameFields.id.required(),
 });

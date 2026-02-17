@@ -1,11 +1,12 @@
 import { type IGameRepository} from '@repositories/game/index.js';
-import type { CreateGameDTO, Game } from 'src/types/index.js';
+import type { CreateGameDTO, Game, GameCurrentState } from 'src/types/index.js';
 
 export interface IGameService {
     getAllGames: () => Promise<Game[]>;
     addGame: (game: CreateGameDTO) => Promise<Game>;
     deleteGame: (id: string) => Promise<boolean>;
     findGames: (parameters: Partial<Game>) => Promise<Game[]>;
+    changeGameStatus: (id: string, status: GameCurrentState) => Promise<Game | null>;
 }
 
 export default function gameService(repository: IGameRepository): IGameService {
@@ -31,10 +32,15 @@ export default function gameService(repository: IGameRepository): IGameService {
         return await repository.findGames(parameters);
     };
 
+    const changeGameStatus = async (id: string, status: GameCurrentState) => {
+        return await repository.updateGame(id, { status });
+    };
+
     return ({
         getAllGames,
         addGame,
         deleteGame,
-        findGames
+        findGames,
+        changeGameStatus
     }); 
 }

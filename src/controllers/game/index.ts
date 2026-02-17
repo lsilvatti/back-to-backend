@@ -49,10 +49,29 @@ export default function GameController(service: IGameService) {
         }
     }
 
+    const changeGameStatus = async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
+        try {
+            const { id } = req.params;
+            const { status } = req.body;
+            
+            const updatedGame = await service.changeGameStatus(id, status);
+
+            if (updatedGame) {
+                return res.status(200).json(updatedGame);
+            } else {
+                return res.status(404).json({ message: 'Jogo não encontrado' });
+            }
+            
+        } catch (error) {
+            next(error);
+        }
+    }
+
     return { 
         addGame,
         getAllGames,
         deleteGame,
-        findGames
+        findGames,
+        changeGameStatus
     }
 }
