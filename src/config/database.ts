@@ -3,8 +3,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Configuração da instância do Sequelize
-// Ajuste o 'dialect' para postgres, mysql, sqlite, etc.
 export const sequelize = new Sequelize(
     process.env.DB_NAME as string,
     process.env.DB_USERNAME as string,
