@@ -1,14 +1,7 @@
-import { type Game } from '../types/game/index.js';
+import { type Game } from '@app-types/game/index.js';
+import { type GameRepository } from './types.js';
 
 const games: Game[] = [];
-
-export interface GameRepository {
-    getAllGames: () => Promise<Game[]>;
-    addGame: (game: Game) => Promise<Game>;
-    updateGame: (id: string, updatedFields: Partial<Game>) => Promise<Game | null>;
-    deleteGame: (id: string) => Promise<boolean>;
-    findGames: (parameters: Partial<Game>) => Promise<Game[]>;
-}
 
 export default function GameRepository(): GameRepository {
     

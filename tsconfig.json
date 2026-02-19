@@ -16,6 +16,7 @@
       "@repositories/*": ["src/repositories/*"],
       "@middlewares/*": ["src/middlewares/*"],
       "@utils/*": ["src/utils/*"],
+      "@app-types/*": ["src/types/*"]
     },
   
     // Environment Settings

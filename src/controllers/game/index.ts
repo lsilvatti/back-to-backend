@@ -1,7 +1,9 @@
-import { type Request, type Response, type NextFunction } from 'express';
-import { type IGameService } from '@services/gameService.js';
+import type {  Request, Response, NextFunction } from 'express';
+import type { GameService } from '@services/game/types.js';
+import type { GameController } from './types.js';
 
-export default function GameController(service: IGameService) { 
+
+export default function GameController(service: GameService): GameController { 
     const getAllGames = async (req: Request, res: Response, next: NextFunction) => {
         try { 
             const games = await service.getAllGames();

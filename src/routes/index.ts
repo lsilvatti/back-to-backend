@@ -1,1 +1,1 @@
-export * from './gameRoutes.js'
+export * from './game/index.js'

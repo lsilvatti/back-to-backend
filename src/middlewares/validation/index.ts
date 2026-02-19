@@ -1,3 +1,3 @@
-export * from './bodyValidation.js';
-export * from './queryValidation.js';
-export * from './paramValidation.js';
+export * from './body/index.js';
+export * from './query/index.ts.js';
+export * from './param/index.ts.js';
