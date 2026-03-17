@@ -4,8 +4,6 @@ Uma API RESTful para gerenciar sua coleção e backlog de videogames, construíd
 
 Baseada neste [repositório incrível](https://github.com/zabeu-engineer/back-to-the-backend/tree/main) de Marcio Zabeu. Criada com amor (e conhecimento).
 
----
-
 ## 📋 Índice
 
 - [Funcionalidades](#-funcionalidades)
@@ -20,8 +18,6 @@ Baseada neste [repositório incrível](https://github.com/zabeu-engineer/back-to
 - [TODO / Roadmap](#-todo--roadmap)
 - [Licença](#-licença)
 
----
-
 ## ✨ Funcionalidades
 
 - **Gerenciamento de Coleção de Jogos**: Adicione, visualize, pesquise e exclua jogos da sua coleção
@@ -32,8 +28,6 @@ Baseada neste [repositório incrível](https://github.com/zabeu-engineer/back-to
 - **Arquitetura Limpa**: Arquitetura em camadas com Controllers, Services e Repositories
 - **TypeScript**: Segurança de tipos total com TypeScript
 - **Desligamento Elegante**: Encerramento adequado do servidor
-
----
 
 ## 🛠 Tecnologias
 
@@ -47,8 +41,6 @@ Baseada neste [repositório incrível](https://github.com/zabeu-engineer/back-to
 | **Joi**      | Validação de requisições    |
 | **Swagger**  | Documentação da API         |
 | **Docker**   | Containerização do banco    |
-
----
 
 ## 📁 Estrutura do Projeto
 
@@ -88,15 +80,11 @@ game-tracker-api/
 └── README.md
 ```
 
----
-
 ## 📦 Pré-requisitos
 
 - **Node.js** v18 ou superior
 - **npm** ou **yarn**
 - **Docker** (para o banco PostgreSQL)
-
----
 
 ## 🚀 Primeiros Passos
 
@@ -153,8 +141,6 @@ O servidor iniciará em `http://localhost:3000` com hot-reload habilitado.
 ### 6. Acesse a Documentação da API
 
 Abra o navegador e acesse: `http://localhost:3000/api-docs`
-
----
 
 ## 🔌 Endpoints da API
 
@@ -219,8 +205,6 @@ Content-Type: application/json
 - `PS1`
 - `N64`
 
----
-
 ## 🔐 Variáveis de Ambiente
 
 | Variável      | Descrição                | Padrão    |
@@ -233,15 +217,11 @@ Content-Type: application/json
 | `DB_USERNAME`| Usuário do banco         | -         |
 | `DB_PASSWORD`| Senha do banco           | -         |
 
----
-
 ## 📚 Documentação da API
 
 A documentação interativa está disponível via **Swagger UI** em `/api-docs` quando em modo de desenvolvimento.
 
 Você também pode acessar a especificação OpenAPI em `/docs.json`.
-
----
 
 ## 🏗 Visão de Arquitetura
 
@@ -279,8 +259,6 @@ O projeto segue o padrão de **arquitetura em camadas**:
 - **Type Safety**: TypeScript com tipos estritos
 - **Validação**: Todas as entradas validadas em middleware usando Joi
 
----
-
 ## 📝 TODO / Roadmap
 
 - [ ] **Integrar PostgreSQL**: Substituir armazenamento em memória por models Sequelize conectados ao PostgreSQL
@@ -309,8 +287,6 @@ O projeto segue o padrão de **arquitetura em camadas**:
   - [ ] Pipeline GitHub Actions
   - [ ] Testes automatizados em PR
   - [ ] Deploy automatizado
-
----
 
 ## 👤 Autor
 
