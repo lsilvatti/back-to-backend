@@ -32,7 +32,7 @@ Based on [this awesome repository](https://github.com/zabeu-engineer/back-to-the
 ## 🛠 Tech Stack
 
 | Technology | Purpose |
-|||
+|--------------|-----------------------------| 
 | **Node.js** | Runtime environment |
 | **Express 5** | Web framework |
 | **TypeScript** | Type-safe JavaScript |
