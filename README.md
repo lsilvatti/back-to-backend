@@ -312,12 +312,6 @@ The project follows a **layered architecture** pattern:
 
 ---
 
-## 📜 License
-
-ISC License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 👤 Author
 
 **Leonardo Silvatti**
