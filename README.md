@@ -4,8 +4,6 @@ A RESTful API for tracking your video game collection and backlog, built with No
 
 Based on [this awesome repository](https://github.com/zabeu-engineer/back-to-the-backend/tree/main) by Marcio Zabeu. Created with love (and knowledge).
 
----
-
 ## 📋 Table of Contents
 
 - [Features](#-features)
@@ -20,8 +18,6 @@ Based on [this awesome repository](https://github.com/zabeu-engineer/back-to-the
 - [TODO / Roadmap](#-todo--roadmap)
 - [License](#-license)
 
----
-
 ## ✨ Features
 
 - **Game Collection Management**: Add, view, search, and delete games from your collection
@@ -33,12 +29,10 @@ Based on [this awesome repository](https://github.com/zabeu-engineer/back-to-the
 - **TypeScript Support**: Full type safety with TypeScript
 - **Graceful Shutdown**: Proper server shutdown handling
 
----
-
 ## 🛠 Tech Stack
 
 | Technology | Purpose |
-|------------|---------|
+|||
 | **Node.js** | Runtime environment |
 | **Express 5** | Web framework |
 | **TypeScript** | Type-safe JavaScript |
@@ -47,8 +41,6 @@ Based on [this awesome repository](https://github.com/zabeu-engineer/back-to-the
 | **Joi** | Request validation |
 | **Swagger** | API documentation |
 | **Docker** | Database containerization |
-
----
 
 ## 📁 Project Structure
 
@@ -88,15 +80,11 @@ game-tracker-api/
 └── README.md
 ```
 
----
-
 ## 📦 Prerequisites
 
 - **Node.js** v18 or higher
 - **npm** or **yarn**
 - **Docker** (for PostgreSQL database)
-
----
 
 ## 🚀 Getting Started
 
@@ -154,14 +142,12 @@ The server will start on `http://localhost:3000` with hot-reload enabled.
 
 Open your browser and navigate to: `http://localhost:3000/api-docs`
 
----
-
 ## 🔌 API Endpoints
 
 ### Games
 
 | Method | Endpoint | Description |
-|--------|----------|-------------|
+|--|-|-|
 | `GET` | `/games` | Get all games |
 | `POST` | `/games` | Add a new game |
 | `DELETE` | `/games/:id` | Delete a game by ID |
@@ -205,7 +191,7 @@ Content-Type: application/json
 ### Game Statuses
 
 | Status | Description |
-|--------|-------------|
+|--|-|
 | `backlog` | Games you own but haven't started |
 | `playing` | Games you're currently playing |
 | `completed` | Games you've finished |
@@ -219,12 +205,10 @@ Content-Type: application/json
 - `PS1`
 - `N64`
 
----
-
 ## 🔐 Environment Variables
 
 | Variable | Description | Default |
-|----------|-------------|---------|
+|-|-||
 | `PORT` | Server port | `3000` |
 | `NODE_ENV` | Environment mode | `local` |
 | `DB_HOST` | PostgreSQL host | `localhost` |
@@ -233,15 +217,11 @@ Content-Type: application/json
 | `DB_USERNAME` | Database user | - |
 | `DB_PASSWORD` | Database password | - |
 
----
-
 ## 📚 API Documentation
 
 Interactive API documentation is available via **Swagger UI** at `/api-docs` when running in development mode.
 
 You can also access the raw OpenAPI specification at `/docs.json`.
-
----
 
 ## 🏗 Architecture Overview
 
@@ -279,8 +259,6 @@ The project follows a **layered architecture** pattern:
 - **Type Safety**: Full TypeScript support with strict types
 - **Validation**: All inputs validated at the middleware level using Joi
 
----
-
 ## 📝 TODO / Roadmap
 
 - [ ] **Integrate PostgreSQL**: Replace in-memory storage with Sequelize models connected to PostgreSQL
@@ -309,8 +287,6 @@ The project follows a **layered architecture** pattern:
   - [ ] GitHub Actions pipeline
   - [ ] Automated testing on PR
   - [ ] Deployment automation
-
----
 
 ## 👤 Author
 
